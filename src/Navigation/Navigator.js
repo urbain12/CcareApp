@@ -10,6 +10,7 @@ import Settings from '../Screens/Settings';
 import SendCase from '../Screens/SendCase';
 import ChangePassword from '../Screens/ChangePassword';
 import FullCase from '../Screens/FullCase';
+import Tips from '../Screens/Tips';
 import { AuthContext } from '../context/context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
@@ -145,7 +146,7 @@ const HomeStackNavigator = (props) => {
                 // Authorization: `Token ${my_token}`,
             };
 
-            await axios.post("https://1dfa-41-186-143-119.eu.ngrok.io/breeder_login/", postObj)
+            await axios.post("https://6599-41-186-143-119.eu.ngrok.io/breeder_login/", postObj)
                 .then(res => {
                     console.log(res)
                     if (res.data.code == 200) {
@@ -273,6 +274,7 @@ const HomeStackNavigator = (props) => {
                         <Stack.Screen name="SendCase" component={SendCase} />
                         <Stack.Screen name="ChangePassword" component={ChangePassword} />
                         <Stack.Screen name="FullCase" component={FullCase} />
+                        <Stack.Screen name="Tips" component={Tips} />
                     </Stack.Navigator>
                 {/* </NavigationContainer> */}
             </AuthContext.Provider>

@@ -9,8 +9,9 @@ import {
     ImageBackground,
     ScrollView,
     TextInput,
+    TurboModuleRegistry,
 } from "react-native";
-import { MaterialCommunityIcons, FontAwesome5, FontAwesome, Ionicons, Entypo, AntDesign, MaterialIcons, Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons, FontAwesome5, FontAwesome, Ionicons, Entypo, AntDesign, MaterialIcons, Feather,Foundation } from "@expo/vector-icons";
 import { TextInputMask } from 'react-native-masked-text';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'axios';
@@ -29,18 +30,18 @@ const Home = (props) => {
 
     };
 
-    
+
 
     useEffect(() => {
         async function setInfo() {
 
             const id = await AsyncStorage.getItem('user_id')
-            axios.get(`https://1dfa-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setBreeder(res.data[0])
             }).catch(err => {
                 console.log(err)
             })
-            axios.get(`https://1dfa-41-186-143-119.eu.ngrok.io/Casebyid/${id}`).then((res) => {
+            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/Casebyid/${id}`).then((res) => {
                 setResponses(res.data)
             }).catch(err => {
                 console.log(err)
@@ -52,7 +53,7 @@ const Home = (props) => {
 
     }, [])
 
-    
+
 
     return (
         <>
@@ -68,9 +69,14 @@ const Home = (props) => {
                         <Image style={{ height: 50, width: 50, borderRadius: 30 }} source={require('../Image/Logo.png')} />
                     </TouchableOpacity>
 
-                    <View style={{ width: "60%", alignItems: "flex-start" }}>
-                        <Text style={[styles.Title, { color: "#fff",fontSize:22 }]}>{Breeder && Breeder.FirstName} {Breeder && Breeder.LastName}</Text>
+                    <View style={{ width: "50%", alignItems: "flex-start" }}>
+                        <Text style={[styles.Title, { color: "#fff", fontSize: 22 }]}>{Breeder && Breeder.FirstName} {Breeder && Breeder.LastName}</Text>
                     </View>
+
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Tips")} style={{ justifyContent: "center", alignItems: "flex-end", width: "25%",marginTop:-10 }}>
+                    <Foundation name="lightbulb" size={38} color="white" />
+                    <Text style={{color:"white",fontWeight:"500",fontSize:9,marginRight:6}}>Tips</Text>
+                    </TouchableOpacity>
 
                 </View>
             </View>
@@ -89,7 +95,7 @@ const Home = (props) => {
                         responses.map(response => {
                             return (
                                 <>
-                                    <TouchableOpacity  onPress={() => { props.navigation.navigate('FullCase', { 'Message': response.Message, 'Symptoms': response.symptoms, 'cType': response.cattleType, 'Reply': response.reply, }) }} style={{ backgroundColor: "#023047", height: 100, width: 350, flexDirection: "row", marginTop: 20, marginHorizontal: 15, borderTopLeftRadius: 10, borderTopRightRadius: 10, borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
+                                    <TouchableOpacity onPress={() => { props.navigation.navigate('FullCase', { 'Message': response.Message, 'Symptoms': response.symptoms, 'cType': response.cattleType, 'Reply': response.reply, }) }} style={{ backgroundColor: "#023047", height: 100, width: 350, flexDirection: "row", marginTop: 20, marginHorizontal: 15, borderTopLeftRadius: 10, borderTopRightRadius: 10, borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
                                         <View style={{ justifyContent: "center", width: "65%", marginHorizontal: 20, }}>
                                             <Text style={{ fontSize: 18, color: 'white', fontWeight: '500' }}>{response.cattleType}</Text>
                                             <Text style={{ fontSize: 14, color: 'white', fontWeight: '500' }}>{response.send_at}</Text>

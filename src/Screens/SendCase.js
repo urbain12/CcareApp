@@ -38,7 +38,7 @@ const SendCase = ({ navigation }) => {
 
             const id = await AsyncStorage.getItem('user_id')
             setMyID(id)
-            axios.get(`https://1dfa-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setbreeder(res.data[0])
             }).catch(err => {
                 console.log(err)
@@ -88,7 +88,7 @@ const SendCase = ({ navigation }) => {
             // Authorization: `Token ${my_token}`,
         };
 
-        axios.post('https://1dfa-41-186-143-119.eu.ngrok.io/CreateCase/', postObj).then((res) => {
+        axios.post('https://6599-41-186-143-119.eu.ngrok.io/CreateCase/', postObj).then((res) => {
             console.log(res.status)
             alert("Succesfully")
             navigation.navigate('Home')
@@ -147,7 +147,7 @@ const SendCase = ({ navigation }) => {
                             <Picker
                                 mode='dropdown'
                                 style={{
-                                    marginTop: -80,
+                                    marginTop: -30,
                                     width: '85%',
                                     alignSelf: 'center'
                                 }}
@@ -173,7 +173,7 @@ const SendCase = ({ navigation }) => {
                             <Picker
                                 mode='dropdown'
                                 style={{
-                                    marginTop: -70,
+                                    marginTop: -20,
                                     width: '85%',
                                     alignSelf: 'center'
                                 }}

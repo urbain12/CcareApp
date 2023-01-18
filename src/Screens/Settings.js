@@ -31,7 +31,7 @@ const Settings = ({ navigation }) => {
         async function setInfo() {
 
             const id = await AsyncStorage.getItem('user_id')
-            axios.get(`https://1dfa-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setBreeder(res.data[0])
             }).catch(err => {
                 console.log(err)
