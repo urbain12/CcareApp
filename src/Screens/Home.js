@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     content: {
 
         fontSize: 30,
-        fontWeight: "bold",
+        fontWeight: "800",
         color: "#fff"
     },
     Texties: {
@@ -223,14 +223,14 @@ const styles = StyleSheet.create({
     },
     Logo: {
         backgroundColor: "#80B539",
-        borderRadius: 20,
-        width: "90%",
+        borderRadius: 10,
+        width: "93%",
         height: "20%",
         alignItems: "center",
         justifyContent: "center",
         shadowColor: "#707070",
         marginTop: -40,
-        marginLeft: 20,
+        marginLeft: 15,
         shadowOffset: {
             width: 0,
             height: 5
