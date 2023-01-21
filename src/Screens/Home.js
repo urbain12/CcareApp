@@ -36,12 +36,12 @@ const Home = (props) => {
         async function setInfo() {
 
             const id = await AsyncStorage.getItem('user_id')
-            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://ecf6-154-68-126-67.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setBreeder(res.data[0])
             }).catch(err => {
                 console.log(err)
             })
-            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/Casebyid/${id}`).then((res) => {
+            axios.get(`https://ecf6-154-68-126-67.eu.ngrok.io/Casebyid/${id}`).then((res) => {
                 setResponses(res.data)
             }).catch(err => {
                 console.log(err)
@@ -57,11 +57,11 @@ const Home = (props) => {
 
     return (
         <>
-            <StatusBar backgroundColor="#00bcd4" translucent={false} hidden={false} barStyle="dark-content" />
+            <StatusBar backgroundColor="#E9A800" translucent={false} hidden={false} barStyle="dark-content" />
             <View style={{
                 height: "25%",
                 paddingTop: 40,
-                backgroundColor: '#2863A4',
+                backgroundColor: '#E9A800',
                 ...styles.shadow
             }}>
                 <View style={{ flexDirection: "row" }}>
@@ -118,7 +118,7 @@ const Home = (props) => {
 
             </View>
 
-            <View style={{ backgroundColor: "#2863A4", height: 90, flexDirection: "row", alignItems: "center", shadowColor: '#999', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 2, shadowRadius: 5, elevation: 5, }}>
+            <View style={{ backgroundColor: "#E9A800", height: 90, flexDirection: "row", alignItems: "center", shadowColor: '#999', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 2, shadowRadius: 5, elevation: 5, }}>
 
 
 
@@ -126,7 +126,7 @@ const Home = (props) => {
                     onPress={() => props.navigation.navigate("Home")}
                 >
 
-                    <FontAwesome name="home" size={35} color="#80B539" />
+                    <FontAwesome name="home" size={35} color="#B47601" />
                 </TouchableOpacity>
 
 
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     Logo: {
-        backgroundColor: "#80B539",
+        backgroundColor: "#D38C03",
         borderRadius: 10,
         width: "93%",
         height: "20%",
