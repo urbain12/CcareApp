@@ -81,7 +81,7 @@ const ChangePassword = ({ navigation }) => {
                 // Authorization: `Token ${my_token}`,
             };
 
-            axios.put('https://ecf6-154-68-126-67.eu.ngrok.io/change-password/', postObj).then((res) => {
+            axios.put('https://9180-154-68-126-67.eu.ngrok.io/change-password/', postObj).then((res) => {
                 console.log(res.status)
                 alert('Your request is submitted')
                 navigation.navigate('Settings')

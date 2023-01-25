@@ -39,7 +39,7 @@ const SendCase = ({ navigation }) => {
 
             const id = await AsyncStorage.getItem('user_id')
             setMyID(id)
-            axios.get(`https://ecf6-154-68-126-67.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://9180-154-68-126-67.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setbreeder(res.data[0])
             })
               .catch(err => {
@@ -70,7 +70,7 @@ const SendCase = ({ navigation }) => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const postObj = new FormData();
         postObj.append('Image', { type: 'image/jpg', uri: Image, name: 'my_image.jpg' })
@@ -80,17 +80,17 @@ const SendCase = ({ navigation }) => {
         postObj.append('cattleType', cType)
         postObj.append('Sector', breeder.Sector)
         console.log(postObj)
-
-        // let my_token = localStorage.getItem('token');
+        
+        //let my_token = await AsyncStorage.getItem('token');
 
         axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.defaults.headers = {
-            "Content-Type": "application/json",
+            "image/jpg": "application/json",
             // Authorization: `Token ${my_token}`,
         };
 
-        axios.post('https://ecf6-154-68-126-67.eu.ngrok.io/CreateCase/', postObj).then((res) => {
+        axios.post('https://9180-154-68-126-67.eu.ngrok.io/CreateCase/', postObj).then((res) => {
             console.log(res.status)
             alert("Succesfully")
             navigation.navigate('Home')
