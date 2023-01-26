@@ -15,6 +15,7 @@ import {
 } from "react-native";
 
 import axios from 'axios';
+import utils from "axios/lib/utils.js";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Icon from '@expo/vector-icons/Entypo';
 import { MaterialIcons, AntDesign, EvilIcons, FontAwesome, Ionicons, Feather, Entypo, SimpleLineIcons } from "@expo/vector-icons";
@@ -40,7 +41,8 @@ const SendCase = ({ navigation }) => {
             setMyID(id)
             axios.get(`https://def6-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setbreeder(res.data[0])
-            }).catch(err => {
+            })
+              .catch(err => {
                 console.log(err)
             })
 
@@ -66,7 +68,7 @@ const SendCase = ({ navigation }) => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const postObj = new FormData();
         // postObj.append('Image', Image)
@@ -76,13 +78,13 @@ const SendCase = ({ navigation }) => {
         postObj.append('cattleType', cType)
         postObj.append('Sector', breeder.Sector)
         console.log(postObj)
-
-        // let my_token = localStorage.getItem('token');
+        
+        //let my_token = await AsyncStorage.getItem('token');
 
         axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.defaults.headers = {
-            "Content-Type": "application/json",
+            "image/jpg": "application/json",
             // Authorization: `Token ${my_token}`,
         };
 
@@ -90,7 +92,11 @@ const SendCase = ({ navigation }) => {
             console.log(res.status)
             alert("Succesfully")
             navigation.navigate('Home')
-        }).catch(err => {
+        })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch(err => {
             console.log(err)
         })
 
@@ -145,7 +151,7 @@ const SendCase = ({ navigation }) => {
                             <Picker
                                 mode='dropdown'
                                 style={{
-                                    marginTop: -30,
+                                    marginTop: 10,
                                     width: '85%',
                                     alignSelf: 'center'
                                 }}
@@ -171,7 +177,7 @@ const SendCase = ({ navigation }) => {
                             <Picker
                                 mode='dropdown'
                                 style={{
-                                    marginTop: -20,
+                                    marginTop: 10,
                                     width: '85%',
                                     alignSelf: 'center'
                                 }}
@@ -209,7 +215,7 @@ const SendCase = ({ navigation }) => {
                     }}>
 
                     <View
-                        style={{ backgroundColor: "#80B539", width: "100%", height: "27%", alignItems: "center", borderRadius: 10 }}
+                        style={{ backgroundColor: "#80B539", width: "100%", height: "30%", alignItems: "center", borderRadius: 10 }}
                     >
                         {loading ? (
                             <ActivityIndicator size='large' color='white' style={{ marginTop: 10 }} />

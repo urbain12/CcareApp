@@ -46,11 +46,11 @@ const Settings = ({ navigation }) => {
     const context = React.useContext(AuthContext)
     return (
         <>
-            <StatusBar backgroundColor="#00bcd4" translucent={false} hidden={false} barStyle="dark-content" />
+            <StatusBar backgroundColor="#E9A800" translucent={false} hidden={false} barStyle="dark-content" />
             <View style={{
                 height: 100,
                 paddingTop: 20,
-                backgroundColor: '#2863A4',
+                backgroundColor: '#E9A800',
                 justifyContent: "center",
                 ...styles.shadow
             }}>
@@ -113,7 +113,7 @@ const Settings = ({ navigation }) => {
 
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.container, { marginBottom: 50,backgroundColor:"#80B539" }]}
+                <TouchableOpacity style={[styles.container, { marginBottom: 50,backgroundColor:"#E9A800" }]}
                     onPress={() => context.signOut()}
                 >
                     <View style={{ flexDirection: "row", width: "100%", marginTop: 5 }}>
@@ -123,7 +123,7 @@ const Settings = ({ navigation }) => {
                         </View>
 
                         <View style={{ width: "85%", marginLeft: -15,justifyContent:"center" }}>
-                            <Text style={[styles.Title,{color:"white"}]}>Sohoka</Text>
+                            <Text style={[styles.Title,{color:"white"}]}>Logout</Text>
                         </View>
 
                     </View>
@@ -131,7 +131,7 @@ const Settings = ({ navigation }) => {
 
             </ScrollView>
 
-            <View style={{ backgroundColor: "#2863A4", height: 90, flexDirection: "row", alignItems: "center", shadowColor: '#999', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 2, shadowRadius: 5, elevation: 5, }}>
+            <View style={{ backgroundColor: "#E9A800", height: 90, flexDirection: "row", alignItems: "center", shadowColor: '#999', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 2, shadowRadius: 5, elevation: 5, }}>
 
 
 
@@ -153,7 +153,7 @@ const Settings = ({ navigation }) => {
                 <TouchableOpacity style={{ marginLeft: "0%", justifyContent: "center", alignItems: "center", width: "30%" }}
                     onPress={() => navigation.navigate("Settings")}>
 
-                    <FontAwesome5 name="user-cog" size={30} color="#80B539" />
+                    <FontAwesome5 name="user-cog" size={30} color="#B47601" />
                 </TouchableOpacity>
             </View>
         </>

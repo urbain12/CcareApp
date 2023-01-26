@@ -111,7 +111,7 @@ const Login = ({ navigation }) => {
                 <View style={styles.action}>
                     <Icon
                         name="user"
-                        color="black"
+                        color="#E9A800"
                         size={20}
                     />
                     <TextInput
@@ -131,7 +131,7 @@ const Login = ({ navigation }) => {
                         >
                             <Icon
                                 name="check"
-                                color="green"
+                                color="#E9A800"
                                 size={30}
                             />
                         </Animatable.View>
@@ -145,7 +145,7 @@ const Login = ({ navigation }) => {
                 <View style={styles.action}>
                     <Icon
                         name="lock"
-                        color="black"
+                        color="#E9A800"
                         size={30}
                         style={{ marginLeft: -5 }}
                     />
@@ -165,13 +165,13 @@ const Login = ({ navigation }) => {
 
                             <Icon
                                 name="eye-with-line"
-                                color="grey"
+                                color="#E9A800"
                                 size={20}
                             />
                             :
                             <Icon
                                 name="eye"
-                                color="black"
+                                color="#E9A800"
                                 size={20}
                             />
                         }
@@ -188,7 +188,7 @@ const Login = ({ navigation }) => {
                         onPress={() => { loginHandle(data.phone, data.password) }}
                     >
                         <View
-                            style={{ backgroundColor: "#009cde", width: "100%", height: "100%", alignItems: "center", borderRadius: 10 }}
+                            style={{ backgroundColor: "#E9A800", width: "100%", height: "100%", alignItems: "center", borderRadius: 10 }}
                         >
                             {data.loading ? (
                                 <ActivityIndicator size='large' color='white' style={{ marginTop: 10 }} />

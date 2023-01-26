@@ -29,12 +29,12 @@ const FullCase = (props) => {
 
     return (
         <>
-            <StatusBar backgroundColor="#00bcd4" translucent={false} hidden={false} barStyle="dark-content" />
+            <StatusBar backgroundColor="#E9A800" translucent={false} hidden={false} barStyle="dark-content" />
             <View style={{
                 height: 100,
                 paddingTop: 20,
                 flexDirection: "row",
-                backgroundColor: '#2863A4',
+                backgroundColor: '#E9A800',
                 justifyContent: "center",
                 ...styles.shadow
             }}>

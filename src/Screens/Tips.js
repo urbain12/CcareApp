@@ -24,12 +24,12 @@ const Tips = (props) => {
 
     return (
         <>
-            <StatusBar backgroundColor="#00bcd4" translucent={false} hidden={false} barStyle="dark-content" />
+            <StatusBar backgroundColor="#E9A800" translucent={false} hidden={false} barStyle="dark-content" />
             <View style={{
                 height: 100,
                 paddingTop: 20,
                 flexDirection: "row",
-                backgroundColor: '#2863A4',
+                backgroundColor: '#E9A800',
                 justifyContent: "center",
                 ...styles.shadow
             }}>
@@ -41,7 +41,7 @@ const Tips = (props) => {
                 <View style={{ width: '50%', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
 
 
-                    <Text style={{ color: 'white', fontSize: 18,fontWeight:"bold" }}>helpful Infomartion</Text>
+                    <Text style={{ color: 'white', fontSize: 18,fontWeight:"bold" }}>Helpful Information</Text>
                 </View>
                 <View style={{ width: '25%', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
 
