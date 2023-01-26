@@ -36,12 +36,12 @@ const Home = (props) => {
         async function setInfo() {
 
             const id = await AsyncStorage.getItem('user_id')
-            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setBreeder(res.data[0])
             }).catch(err => {
                 console.log(err)
             })
-            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/Casebyid/${id}`).then((res) => {
+            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/Casebyid/${id}`).then((res) => {
                 setResponses(res.data)
             }).catch(err => {
                 console.log(err)

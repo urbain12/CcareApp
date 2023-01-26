@@ -38,7 +38,7 @@ const SendCase = ({ navigation }) => {
 
             const id = await AsyncStorage.getItem('user_id')
             setMyID(id)
-            axios.get(`https://6599-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setbreeder(res.data[0])
             }).catch(err => {
                 console.log(err)
@@ -55,23 +55,21 @@ const SendCase = ({ navigation }) => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
-            name:"image.jpg",
-            type:"image/jpg",
             aspect: [4, 3],
             quality: 1,
         });
 
         console.log(result);
 
-        if (!result.cancelled) {
-            setImage(result.uri);
+        if (!result.canceled) {
+            setImage(result.assets[0]);
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const postObj = new FormData();
-        postObj.append('Image', { type: 'image/jpg', uri: Image, name: 'my_image.jpg' })
+        // postObj.append('Image', Image)
         postObj.append('user', myID)
         postObj.append('Message', Message)
         postObj.append('symptoms', symptoms)
@@ -88,7 +86,7 @@ const SendCase = ({ navigation }) => {
             // Authorization: `Token ${my_token}`,
         };
 
-        axios.post('https://6599-41-186-143-119.eu.ngrok.io/CreateCase/', postObj).then((res) => {
+        axios.post('https://def6-41-186-143-119.eu.ngrok.io/CreateCase/', postObj).then((res) => {
             console.log(res.status)
             alert("Succesfully")
             navigation.navigate('Home')
@@ -191,17 +189,17 @@ const SendCase = ({ navigation }) => {
                         <View style={styles.action}>
                             <TextInput
                                 numberOfLines={5}
-                                value={Message}
                                 multiline={true}
                                 placeholder="Explain case!"
                                 placeholderTextColor="#7d7d7d"
                                 style={{ borderRadius: 10, width: '90%', height: 100, margin: 20, padding: 20, color: "black", backgroundColor: "#f5f6fb" }}
-                                onChangeText={(val) => { setMessage(val) }} />
+                                onChangeText={(val) => { setMessage(val) }}
+                            />
                         </View>
 
-                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                             <Button title="Pick a picture" onPress={pickImage} />
-                        </View>
+                        </View> */}
                     </TouchableOpacity>
                 </View>
 
