@@ -39,7 +39,7 @@ const SendCase = ({ navigation }) => {
 
             const id = await AsyncStorage.getItem('user_id')
             setMyID(id)
-            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://589d-154-68-126-67.eu.ngrok.io o/GetbreederbyId/${id}`).then((res) => {
                 setbreeder(res.data[0])
             })
               .catch(err => {
@@ -88,7 +88,7 @@ const SendCase = ({ navigation }) => {
             // Authorization: `Token ${my_token}`,
         };
 
-        axios.post('https://def6-41-186-143-119.eu.ngrok.io/CreateCase/', postObj).then((res) => {
+        axios.post('https://589d-154-68-126-67.eu.ngrok.io o/CreateCase/', postObj).then((res) => {
             console.log(res.status)
             alert("Succesfully")
             navigation.navigate('Home')
@@ -111,8 +111,8 @@ const SendCase = ({ navigation }) => {
 
         return (
 
-            <View style={{ width: windowWidth, backgroundColor: '#2863A4', height: windowHeight / 8, flexDirection: 'row' }}>
-                <StatusBar backgroundColor='#0A2133' barStyle="light-content" />
+            <View style={{ width: windowWidth, backgroundColor: '#E9A800', height: windowHeight / 8, flexDirection: 'row' }}>
+                <StatusBar backgroundColor='#E9A800' barStyle="light-content" />
 
                 <TouchableOpacity onPress={() => { navigation.goBack() }} style={{ width: '25%', alignItems: 'center', justifyContent: 'center', marginTop: '8%' }}>
                     <Ionicons name="arrow-back" size={24} color="white" />
@@ -215,7 +215,7 @@ const SendCase = ({ navigation }) => {
                     }}>
 
                     <View
-                        style={{ backgroundColor: "#80B539", width: "100%", height: "30%", alignItems: "center", borderRadius: 10 }}
+                        style={{ backgroundColor: "#E9A800", width: "100%", height: "30%", alignItems: "center", borderRadius: 10 }}
                     >
                         {loading ? (
                             <ActivityIndicator size='large' color='white' style={{ marginTop: 10 }} />
