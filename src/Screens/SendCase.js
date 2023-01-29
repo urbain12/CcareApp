@@ -39,11 +39,7 @@ const SendCase = ({ navigation }) => {
 
             const id = await AsyncStorage.getItem('user_id')
             setMyID(id)
-<<<<<<< HEAD
             axios.get(`https://e807-105-178-42-215.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
-=======
-            axios.get(`https://589d-154-68-126-67.eu.ngrok.io o/GetbreederbyId/${id}`).then((res) => {
->>>>>>> 3f34e09a4adbe5ad2056d24dc38ae608d0dd2de8
                 setbreeder(res.data[0])
             })
                 .catch(err => {
@@ -203,13 +199,7 @@ const SendCase = ({ navigation }) => {
 
                 <TouchableOpacity style={{ marginTop: 20 }} onPress={(e) => { handleSubmit(e) }}>
 
-<<<<<<< HEAD
                     <View style={{ backgroundColor: "#80B539", width: "100%", alignItems: "center", borderRadius: 10, justifyContent: "center", paddingBottom: 10, paddingTop: 10 }}>
-=======
-                    <View
-                        style={{ backgroundColor: "#E9A800", width: "100%", height: "30%", alignItems: "center", borderRadius: 10 }}
-                    >
->>>>>>> 3f34e09a4adbe5ad2056d24dc38ae608d0dd2de8
                         {loading ? (
                             <ActivityIndicator size='large' color='white' style={{ marginTop: 10 }} />
                         ) :
