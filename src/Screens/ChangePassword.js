@@ -101,8 +101,8 @@ const ChangePassword = ({ navigation }) => {
 
         return (
             
-            <View style={{ width: windowWidth, backgroundColor: '#2863A4', height: windowHeight / 8, flexDirection: 'row' }}>
-                <StatusBar backgroundColor='#0A2133' barStyle="light-content" />
+            <View style={{ width: windowWidth, backgroundColor: '#E9A800', height: windowHeight / 8, flexDirection: 'row' }}>
+                <StatusBar backgroundColor='#E9A800' barStyle="light-content" />
 
                 <TouchableOpacity onPress={() => { navigation.goBack() }} style={{ width: '25%', alignItems: 'center', justifyContent: 'center', marginTop: '8%' }}>
                     <Ionicons name="arrow-back" size={24} color="white" />
@@ -161,7 +161,7 @@ const ChangePassword = ({ navigation }) => {
                                     :
                                     <Icon
                                         name="eye"
-                                        color="black"
+                                        color="#E9A800"
                                         size={20}
                                         style={{ marginTop: 20, marginBottom: 20 }}
                                     />
@@ -192,7 +192,7 @@ const ChangePassword = ({ navigation }) => {
                                     :
                                     <Icon
                                         name="eye"
-                                        color="black"
+                                        color="#E9A800"
                                         size={20}
                                         style={{ marginTop: 20, marginBottom: 20 }}
                                     />
@@ -223,7 +223,7 @@ const ChangePassword = ({ navigation }) => {
                                     :
                                     <Icon
                                         name="eye"
-                                        color="black"
+                                        color="#E9A800"
                                         size={20}
                                         style={{ marginTop: 20, marginBottom: 20 }}
                                     />
@@ -241,7 +241,7 @@ const ChangePassword = ({ navigation }) => {
                     }}>
 
                     <View
-                        style={{ backgroundColor: "#80B539", width: "100%", height: "40%", alignItems: "center", borderRadius: 10 }}
+                        style={{ backgroundColor: "#E9A800", width: "100%", height: "40%", alignItems: "center", borderRadius: 10 }}
                     >
                         {loading ? (
                             <ActivityIndicator size='large' color='white' style={{ marginTop: 10 }} />

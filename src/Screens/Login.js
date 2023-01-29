@@ -95,7 +95,7 @@ const Login = ({ navigation }) => {
                         }}
                     />
                 </ImageBackground>
-                <Text style={{ fontWeight: "900", marginTop: 8, fontSize: 18 }}>RVF CattleCare</Text>
+                <Text style={{ fontWeight: "900", marginTop: 8, fontSize: 18 }}>Cattle Disease Management (RVF)</Text>
             </View>
             <Text style={{ textAlign: "center", fontSize: 12, fontWeight: "bold", marginBottom: 10, color: "#707070" }}>Login using your credentials</Text>
 
@@ -165,7 +165,7 @@ const Login = ({ navigation }) => {
 
                             <Icon
                                 name="eye-with-line"
-                                color="#E9A800"
+                                color="grey"
                                 size={20}
                             />
                             :
@@ -173,6 +173,8 @@ const Login = ({ navigation }) => {
                                 name="eye"
                                 color="#E9A800"
                                 size={20}
+                                style={{ marginTop: 20, marginBottom: 20 }}
+
                             />
                         }
                     </TouchableOpacity>
@@ -207,7 +209,7 @@ const Login = ({ navigation }) => {
                     <Text style={{ color: '#1B1C1E', marginTop: 15, fontWeight: "bold" }}>Forgot password?</Text>
                 </TouchableOpacity>
                 <View style={{ alignItems: "center", marginTop: "45%" }}>
-                    <Text style={{ fontSize: 12, fontWeight: "bold", color: "#707070" }}>Copyright @ 2023 RVF CattleCare</Text>
+                    <Text style={{ fontSize: 12, fontWeight: "bold", color: "#707070" }}>Copyright @ 2023 Cattle Disease Management (RVF)</Text>
                 </View>
 
             </Animatable.View>
