@@ -39,12 +39,12 @@ const SendCase = ({ navigation }) => {
 
             const id = await AsyncStorage.getItem('user_id')
             setMyID(id)
-            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://e807-105-178-42-215.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setbreeder(res.data[0])
             })
-              .catch(err => {
-                console.log(err)
-            })
+                .catch(err => {
+                    console.log(err)
+                })
 
         }
 
@@ -52,52 +52,40 @@ const SendCase = ({ navigation }) => {
 
     }, [])
 
-
-    const pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.All,
-            allowsEditing: true,
-            aspect: [4, 3],
-            quality: 1,
-        });
-
-        console.log(result);
-
-        if (!result.canceled) {
-            setImage(result.assets[0]);
-        }
-    };
-
     const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault()
-        const postObj = new FormData();
-        // postObj.append('Image', Image)
-        postObj.append('user', myID)
-        postObj.append('Message', Message)
-        postObj.append('symptoms', symptoms)
-        postObj.append('cattleType', cType)
-        postObj.append('Sector', breeder.Sector)
+        const postObj = JSON.stringify({
+            'user': myID,
+            'Message': Message,
+            'symptoms': symptoms,
+            'cattleType': cType,
+            'Sector': breeder.Sector,
+         
+          })
+      
+       
         console.log(postObj)
-        
-        //let my_token = await AsyncStorage.getItem('token');
+
+        // let my_token =  await AsyncStorage.getItem('token')
 
         axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.defaults.headers = {
-            "image/jpg": "application/json",
+            "Content-Type": "application/json",
             // Authorization: `Token ${my_token}`,
         };
 
-        axios.post('https://def6-41-186-143-119.eu.ngrok.io/CreateCase/', postObj).then((res) => {
+        axios.post('https://e807-105-178-42-215.eu.ngrok.io/CreateCase/', postObj).then((res) => {
             console.log(res.status)
-            alert("Succesfully")
+            alert("Sent successfull")
             navigation.navigate('Home')
         })
         .then((res) => {
           console.log(res)
         })
         .catch(err => {
-            console.log(err)
+            alert(err)
         })
 
         setTimeout(() => {
@@ -209,19 +197,14 @@ const SendCase = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={{ marginTop: 20 }}
-                    onPress={(event) => {
-                        handleSubmit(event)
-                    }}>
+                <TouchableOpacity style={{ marginTop: 20 }} onPress={(e) => { handleSubmit(e) }}>
 
-                    <View
-                        style={{ backgroundColor: "#80B539", width: "100%", height: "30%", alignItems: "center", borderRadius: 10 }}
-                    >
+                    <View style={{ backgroundColor: "#80B539", width: "100%", alignItems: "center", borderRadius: 10, justifyContent: "center", paddingBottom: 10, paddingTop: 10 }}>
                         {loading ? (
                             <ActivityIndicator size='large' color='white' style={{ marginTop: 10 }} />
                         ) :
                             (
-                                <Text style={{ color: "white", marginTop: 5, fontSize: 20, fontWeight: "bold" }}>Send</Text>
+                                <Text style={{ color: "white", marginTop: 10, fontSize: 20, fontWeight: "bold" }}>Send</Text>
                             )}
 
                     </View>

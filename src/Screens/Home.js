@@ -6,10 +6,8 @@ import {
     Image,
     TouchableOpacity,
     StatusBar,
-    ImageBackground,
     ScrollView,
-    TextInput,
-    TurboModuleRegistry,
+    LogBox,
 } from "react-native";
 import { MaterialCommunityIcons, FontAwesome5, FontAwesome, Ionicons, Entypo, AntDesign, MaterialIcons, Feather,Foundation } from "@expo/vector-icons";
 import { TextInputMask } from 'react-native-masked-text';
@@ -22,26 +20,18 @@ const Home = (props) => {
     const [responses, setResponses] = useState([])
 
 
-
-    const format = (amount) => {
-        return Number(amount)
-            .toFixed(2)
-            .replace(/\d(?=(\d{3})+\.)/g, '$&,')
-
-    };
-
-
-
-    useEffect(() => {
+    React.useEffect(() => {
+        LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
         async function setInfo() {
 
             const id = await AsyncStorage.getItem('user_id')
-            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
+            axios.get(`https://e807-105-178-42-215.eu.ngrok.io/GetbreederbyId/${id}`).then((res) => {
                 setBreeder(res.data[0])
+                console.log(res.data[0])
             }).catch(err => {
                 console.log(err)
             })
-            axios.get(`https://def6-41-186-143-119.eu.ngrok.io/Casebyid/${id}`).then((res) => {
+            axios.get(`https://e807-105-178-42-215.eu.ngrok.io/Casebyid/${id}`).then((res) => {
                 setResponses(res.data)
             }).catch(err => {
                 console.log(err)
@@ -49,7 +39,9 @@ const Home = (props) => {
 
         }
 
-        setInfo()
+        setInterval(() => {
+            setInfo()
+        }, 500)
 
     }, [])
 
@@ -84,7 +76,7 @@ const Home = (props) => {
             <View style={styles.container}>
                 <View style={styles.Logo}>
 
-                    <View>
+                    <View >
                         <Text style={styles.content}>Case List</Text>
                     </View>
                 </View>
@@ -223,14 +215,14 @@ const styles = StyleSheet.create({
     },
     Logo: {
         backgroundColor: "#D38C03",
-        borderRadius: 10,
-        width: "93%",
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+        width: "100%",
         height: "20%",
         alignItems: "center",
         justifyContent: "center",
         shadowColor: "#707070",
         marginTop: -40,
-        marginLeft: 15,
         shadowOffset: {
             width: 0,
             height: 5

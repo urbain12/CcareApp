@@ -146,7 +146,7 @@ const HomeStackNavigator = (props) => {
                 // Authorization: `Token ${my_token}`,
             };
 
-            await axios.post("https://def6-41-186-143-119.eu.ngrok.io/breeder_login/", postObj)
+            await axios.post("https://e807-105-178-42-215.eu.ngrok.io/breeder_login/", postObj)
                 .then(res => {
                     console.log(res)
                     if (res.data.code == 200) {
